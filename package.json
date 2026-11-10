@@ -1,0 +1,14 @@
+{
+  "name": "operation-blackout",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Operation: Blackout — משחק הרפתקאות דקדוק באנגלית מבוסס מכונת מצבים",
+  "scripts": {
+    "dev": "npx --yes serve . -l 4321",
+    "start": "python3 -m http.server 4321",
+    "test": "node tests/engine.test.mjs"
+  },
+  "keywords": ["game", "state-machine", "grammar", "education", "cyberpunk"],
+  "license": "MIT"
+}
