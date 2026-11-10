@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#05060a" />
+    <meta
+      name="description"
+      content="Operation: Blackout — משחק הרפתקאות דקדוק באנגלית. סוכן, חדור למעבדת הבינה המלאכותית ועצור את A.R.E.S."
+    />
+    <title>Operation: Blackout — משחק דקדוק באנגלית</title>
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2305060a'/%3E%3Cpath d='M11 14v-3a5 5 0 0 1 10 0v3' stroke='%2322e1ff' stroke-width='2.4' fill='none'/%3E%3Crect x='8' y='14' width='16' height='12' rx='3' fill='%2322e1ff'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Heebo:wght@300;400;600;800&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <!-- שכבות אווירה: רשת + קווי סריקה -->
+    <div class="backdrop" aria-hidden="true">
+      <div class="backdrop__grid"></div>
+      <div class="backdrop__glow backdrop__glow--cyan"></div>
+      <div class="backdrop__glow backdrop__glow--magenta"></div>
+      <div class="backdrop__scanlines"></div>
+    </div>
+
+    <div class="app">
+      <!-- ================= HUD ================= -->
+      <header class="hud" aria-label="לוח מצב הסוכן">
+        <div class="hud__brand">
+          <span class="hud__logo" aria-hidden="true">◈</span>
+          <div class="hud__titles">
+            <h1 class="hud__title" dir="ltr">Operation: Blackout</h1>
+            <p class="hud__subtitle">סוכן, חדור למעבדת הבינה המלאכותית</p>
+          </div>
+        </div>
+
+        <div class="hud__meters">
+          <!-- HP -->
+          <div class="meter meter--hp">
+            <div class="meter__top">
+              <span class="meter__label">
+                <span class="meter__icon" aria-hidden="true">❤</span> HP
+                <span class="meter__value" data-hp-value>100</span>
+              </span>
+            </div>
+            <div
+              class="hp-track"
+              data-hp-track
+              role="progressbar"
+              aria-label="נקודות חיים"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="100"
+            >
+              <div class="hp-track__fill" data-hp-fill></div>
+            </div>
+          </div>
+
+          <!-- ניקוד -->
+          <div class="meter meter--score">
+            <span class="meter__label">ניקוד</span>
+            <span class="meter__score" data-score-value>100</span>
+          </div>
+
+          <!-- שלב -->
+          <div class="meter meter--stage">
+            <span class="meter__label">שלב</span>
+            <span class="meter__stage" data-stage-value>1/20</span>
+          </div>
+
+          <!-- התקדמות -->
+          <div class="meter meter--progress">
+            <div class="progress-track" aria-hidden="true">
+              <div class="progress-track__fill" data-progress-fill></div>
+            </div>
+          </div>
+
+          <button class="hud__restart" type="button" data-action="restart" title="איפוס המשימה">
+            <span aria-hidden="true">⟳</span>
+            <span class="hud__restart-text">איפוס</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ================= מסך המשחק ================= -->
+      <main class="screen" id="screen" aria-live="off">
+        <!-- תוכן נרנדר ע"י js/ui.js -->
+      </main>
+
+      <footer class="footer">
+        <span dir="ltr">A.R.E.S // LAB SECURITY PROTOCOL v2.0</span>
+        <span class="footer__sep" aria-hidden="true">·</span>
+        <span>20 שלבים · 100 HP · 300 נקודות מקסימום</span>
+      </footer>
+    </div>
+
+    <!-- אזור הכרזה לקוראי מסך -->
+    <div class="sr-only" id="sr-status" role="status" aria-live="polite"></div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
